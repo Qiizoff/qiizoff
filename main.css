@@ -1,0 +1,11 @@
+body {
+    margin: 0 auto;
+    background: cadetblue;
+}
+
+p {
+    font-size: 25px;
+    font-weight: 100;
+    padding: 25px;
+    color: aquamarine;
+}
