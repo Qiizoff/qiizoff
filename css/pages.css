@@ -76,8 +76,7 @@ video {
     outline: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
-
+    vertical-align: baseline
 }
 
 article,
@@ -187,11 +186,11 @@ p code {
 
 h2 {
     text-align: center;
-    font-weight: 100;
+    font-weight: 200;
     line-height: 38px;
     margin: 40px auto 0;
     font-size: 21px;
-    padding-bottom: 20px;
+    max-width: 740px
 }
 
 .page h1.title {
@@ -229,32 +228,10 @@ textarea {
 }
 
 #hero-spot {
+    padding: 40px 0 0;
     position: relative;
     overflow: hidden;
-    background: #222;
-}
-
-#head {
-    color: white;
-    position: relative;
-    overflow: hidden;
-    background: #222;
-}
-
-#html-box.active,
-#css-box.active,
-#js-box.active,
-#result-box.active {
-    display: block;
-    height: 100%;
-}
-
-#result-box.zoom-05 iframe {
-    width: 200% !important;
-    height: 200% !important;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-
+    background: #222
 }
 
 .help-link {
@@ -323,7 +300,7 @@ h1 {
 }
 
 .slide {
-    margin: 500px auto;
+    margin: 0 auto;
     max-width: 100%;
     position: absolute;
     left: 0;
@@ -468,12 +445,12 @@ h1 {
 }
 
 #create-repo-step {
-    background: #fff url(../images/user-repo@2x.png) right 0 no-repeat;
+    background: #fff url(/images/user-repo@2x.png) right 0 no-repeat;
     background-size: 446px 328px
 }
 
 #setup-in-desktop {
-    background: #fff url(../images/setup-in-desktop@2x.png) no-repeat right 0;
+    background: #fff url(/images/setup-in-desktop@2x.png) no-repeat right 0;
     background-size: 443px 303px
 }
 
@@ -830,7 +807,7 @@ footer .right {
 @font-face {
     font-family: 'octicons';
     src: url("octicons.eot");
-    src: url("octicons.eot") format("embedded-opentype"), url("octicons.woff") format("woff"), url("octicons.ttf") format("truetype"), url("octicons.svg") format("svg");
+    src: url("octicons.eot#iefix") format("embedded-opentype"), url("octicons.woff") format("woff"), url("octicons.ttf") format("truetype"), url("octicons.svg#octicons") format("svg");
     font-weight: normal;
     font-style: normal
 }
