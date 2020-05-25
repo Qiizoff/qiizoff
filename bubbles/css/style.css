@@ -2,11 +2,16 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #333;
+    margin: 0 auto;
+}
+
 .footer {
     font-family: Helvetica, sans-serif;
     height: 100px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     display: flex;
     align-items: center;

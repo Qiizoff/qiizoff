@@ -232,7 +232,6 @@ textarea {
     position: relative;
     overflow: hidden;
     background: #222;
-    height: 800px
 }
 
 #head {
@@ -240,7 +239,22 @@ textarea {
     position: relative;
     overflow: hidden;
     background: #222;
-    overflow: hidden;
+}
+
+#html-box.active,
+#css-box.active,
+#js-box.active,
+#result-box.active {
+    display: block;
+    height: 100%;
+}
+
+#result-box.zoom-05 iframe {
+    width: 200% !important;
+    height: 200% !important;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+
 }
 
 .help-link {

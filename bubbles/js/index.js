@@ -24,7 +24,7 @@ letterColors = [red, orange, green, blue, purple];
 // This variable controls how much the dots will rotate when interacting
 // rotationForce = 0.01;
 
-message = 'Q2zoff Page';
+message = 'qiizoff.github.io';
 
 bubbleShape = "square";
 bubbleShape = "circle";
