@@ -10,7 +10,7 @@ var app = function () {
     };
     var applyListeners = function applyListeners() {
         menu.addEventListener('click', function () {
-            return toggleClass(body, 'nav-active');
+            return toggleClass(body, 'active');
         });
     };
     var toggleClass = function toggleClass(element, stringClass) {
