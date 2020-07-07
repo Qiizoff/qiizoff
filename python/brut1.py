@@ -8,7 +8,6 @@ pass_int = int(password)
 t1 = time.time()
 
 for i in range(0, 1000):
-
     print('pass:', i)
     if i == pass_int:
         # print('password is', i)

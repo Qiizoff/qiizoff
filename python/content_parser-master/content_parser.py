@@ -29,9 +29,9 @@ class Parser():
              'accept-language': 'ru,en;q=0.9,la;q=0.8'})
 
     def generate_url(self):
-        s = 'tcum81'
-        for i in range(int(s, 36), 0, -1):
-            print(base_repr(i, 36).lower())
+        # s = 'tcum81'
+        # for i in range(int(s, 36), 0, -1):
+        #     print(base_repr(i, 36).lower())
 
         VALID_CHARS = 'abcdefghijklmnopqrstuvwxyz0123456789'
         return self.host + ''.join([random.choice(VALID_CHARS) for _ in range(self.slug_len)])
