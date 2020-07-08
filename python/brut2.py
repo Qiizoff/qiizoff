@@ -4,6 +4,7 @@ s = 'td78nv'
 
 for i in range(int(s, 36), 0, -1):
     print(i)
-    print(base_repr(i, 36).lower())
-    if i == 1775102971:
+    p = (base_repr(i, 36).lower())
+    print(p)
+    if i == 1775687971:
         break

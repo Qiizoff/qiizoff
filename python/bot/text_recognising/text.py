@@ -4,6 +4,7 @@ import pyscreenshot as ImageGrab
 import cv2
 import os
 import pytesseract
+import re
 
 
 filename = 'Image.png'
@@ -26,10 +27,9 @@ img = cv2.imread('Image.png')
 text = pytesseract.image_to_string(img)
 print(text)
 
-# index = text.find("You")
-# print(index)
-
-# if index == -1:
-#     print("ТАКОГО СЛОВА НЕТЬ!!!")
-# else:
-#     print("Я НАШЕЛЬ ЕНТО СЛОВО!!!")
+# FIND LONG WORDS
+count = 15
+for word in text.split():
+    if len(word) > count:
+        # count = len(word)
+        print('LONG WORD:', word)

@@ -7,6 +7,7 @@ import os
 import re
 
 import requests
+from numpy import base_repr
 
 
 class Parser():
@@ -27,6 +28,11 @@ class Parser():
              'accept-language': 'ru,en;q=0.9,la;q=0.8'})
 
     def generate_url(self, lowercase=True, uppercase=True, numbers=True):
+
+        # s = 'tcum81'
+        # for i in range(int(s, 36), 0, -1):
+        #     p = (base_repr(i, 36).lower())
+
         letters_lower = 'abcdefghijklmnopqrstuvwxyz'
         letters_upper = letters_lower.upper()
         numbers = '0123456789'
@@ -35,6 +41,7 @@ class Parser():
         VALID_CHARS += letters_upper if uppercase else ''
         VALID_CHARS += numbers if numbers else ''
         return self.host + ''.join([random.choice(VALID_CHARS) for _ in range(self.slug_len)])
+        # return self.host + ''.join([p for _ in range(self.slug_len)])
 
     def save_content(self, parsed_content):
         path = f'./{self.folder_name}/{parsed_content.file_type}'
@@ -46,7 +53,7 @@ class Parser():
         with open(f'{path}/{parsed_content.name}', 'wb') as output_file:
             output_file.write(parsed_content.content)
 
-    @abc.abstractmethod
+    @ abc.abstractmethod
     def start(self):
         pass
 

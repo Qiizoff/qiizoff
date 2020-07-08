@@ -1,6 +1,6 @@
 import time
 
-password = '008'
+password = '01234'
 
 # VALID_CHARS = 'abcdefghijklmnopqrstuvwxyz0123456789'
 
