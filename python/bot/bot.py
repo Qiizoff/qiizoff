@@ -3,15 +3,29 @@ import config
 import telebot
 
 bot = telebot.TeleBot(config.token)
+
+bot_text = '''
+Bip-bop human,
+
+I classify images using neural networks 🚀
+
+Send me pictures, and I will classify them for you 🤟
+
+Created with ❤️ by Alain Perkaz. @wh_image_classificator_bot
+Source code on https://glitch.com/~telegram-image-classfication-bot
+'''
+
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard1.row('Привет', 'Пока')
 
 
+# @bot.message_handler(commands=['start'])
+# def start_message(message):
+#     bot.send_message(
+#         message.chat.id, 'Привет, ты написал мне /start', reply_markup=keyboard1)
 @bot.message_handler(commands=['start'])
-def start_message(message):
-    bot.send_message(
-        message.chat.id, 'Привет, ты написал мне /start', reply_markup=keyboard1)
-
+def send_welcome(message):
+    bot.send_message(message.chat.id, bot_text)
 
 # @bot.message_handler(content_types=['photo'])
 # def handle_docs_photo(message):
@@ -28,6 +42,7 @@ def start_message(message):
 
 #     except Exception as e:
 #         bot.reply_to(message, e)
+
 
 @bot.message_handler(content_types=['photo'])
 def handle_docs_photo(message):
@@ -55,3 +70,6 @@ def repeat_all_messages(message):
 
 if __name__ == '__main__':
     bot.infinity_polling()
+
+
+# ----------- Helper functions ---------------
