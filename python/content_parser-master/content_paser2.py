@@ -19,7 +19,7 @@ class Parser():
         self.session.headers.update(
             {'authority': 'prnt.sc',
              'sec-fetch-dest': 'image',
-             'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36',
+             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
              'dnt': '1',
              'accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
              'sec-fetch-site': 'same-origin',
