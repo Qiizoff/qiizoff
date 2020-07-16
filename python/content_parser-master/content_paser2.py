@@ -99,7 +99,7 @@ class PrntscParser(Parser):
 
     def start(self):
         # start url (from new to old uploads)
-        freshets_shortcode = 'ti3ta6'
+        freshets_shortcode = 'tise4q'
         for url in self.generate_url(freshets_shortcode):
             content = self.download_content(url)
             if content != None:
