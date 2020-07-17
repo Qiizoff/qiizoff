@@ -5,43 +5,42 @@ import telebot
 bot = telebot.TeleBot(config.token)
 
 bot_text = '''
-Bip-bop human,
-
-I classify images using neural networks 🚀
-
-Send me pictures, and I will classify them for you 🤟
-
-Created with ❤️ by Alain Perkaz. @wh_image_classificator_bot
-Source code on https://glitch.com/~telegram-image-classfication-bot
+Привет,
+Я распознаю изображения с помощью нейронных сетей!
+Пришли мне фотографию, и я распознаю ее для тебя🤟
+Используй /help для получения полного списка команд.
 '''
 
-keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard1.row('Привет', 'Пока')
+bot_help = '''
+Список команд бота:
+
+/start
+/help
+/send
+'''
 
 
-# @bot.message_handler(commands=['start'])
-# def start_message(message):
-#     bot.send_message(
-#         message.chat.id, 'Привет, ты написал мне /start', reply_markup=keyboard1)
+@bot.message_handler(commands=['help'])
+def send_welcome(message):
+    bot.send_message(message.chat.id, bot_help)
+
+
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(message.chat.id, bot_text)
 
-# @bot.message_handler(content_types=['photo'])
-# def handle_docs_photo(message):
 
-#     try:
-
-#         file_info = bot.get_file(message.photo[len(message.photo)-1].file_id)
-#         downloaded_file = bot.download_file(file_info.file_path)
-
-#         src = '/files/'+file_info.file_path
-#         with open(src, 'wb') as new_file:
-#             new_file.write(downloaded_file)
-#         bot.reply_to(message, "Фото добавлено")
-
-#     except Exception as e:
-#         bot.reply_to(message, e)
+@bot.message_handler(commands=['send'])
+def send_welcome(message):
+    markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    button1 = telebot.types.KeyboardButton(
+        text='Отправить мою локацию', request_location=True)
+    button2 = telebot.types.KeyboardButton(
+        text='Отправить Мой номер', request_contact=True)
+    button3 = telebot.types.KeyboardButton(
+        text='Закрыть')
+    markup.add(button1, button2, button3)
+    bot.send_message(message.chat.id, 'Ваш данные:', reply_markup=markup)
 
 
 @bot.message_handler(content_types=['photo'])
@@ -53,7 +52,7 @@ def handle_docs_photo(message):
         file_info = bot.get_file(message.photo[len(message.photo)-1].file_id)
         downloaded_file = bot.download_file(file_info.file_path)
 
-        src = 'D:/GitHub//qiizoff.github.io//python//bot//files//' + file_info.file_path
+        src = 'D:/' + file_info.file_path
         with open(src, 'wb') as new_file:
             new_file.write(downloaded_file)
         bot.reply_to(message, "Фото добавлено")
@@ -62,7 +61,7 @@ def handle_docs_photo(message):
         bot.reply_to(message, e)
 
 
-@ bot.message_handler(content_types=["text"])
+@bot.message_handler(content_types=["text"])
 # Название функции не играет никакой роли, в принципе
 def repeat_all_messages(message):
     bot.send_message(message.chat.id, message.text)
