@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import config
 import telebot
+from config import token
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot(token)
 
 bot_text = '''
 Привет,
@@ -12,17 +12,13 @@ bot_text = '''
 '''
 
 bot_help = '''
-Список команд бота:
-
+Список основных команд бота:
 /start
 /help
+
+Список тестовых команд бота:
 /send
 '''
-
-
-@bot.message_handler(commands=['help'])
-def send_welcome(message):
-    bot.send_message(message.chat.id, bot_help)
 
 
 @bot.message_handler(commands=['start'])
@@ -30,16 +26,23 @@ def send_welcome(message):
     bot.send_message(message.chat.id, bot_text)
 
 
+@bot.message_handler(commands=['help'])
+def send_welcome(message):
+    bot.send_message(message.chat.id, bot_help)
+
+
 @bot.message_handler(commands=['send'])
 def send_welcome(message):
-    markup = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True)
+    markup = telebot.types.ReplyKeyboardMarkup(
+        one_time_keyboard=True, resize_keyboard=True)
     button1 = telebot.types.KeyboardButton(
         text='Отправить мою локацию', request_location=True)
     button2 = telebot.types.KeyboardButton(
         text='Отправить Мой номер', request_contact=True)
     button3 = telebot.types.KeyboardButton(
         text='Закрыть')
-    markup.add(button1, button2, button3)
+    markup.add(button1, button2)
+    markup.row(button3)
     bot.send_message(message.chat.id, 'Ваш данные:', reply_markup=markup)
 
 
