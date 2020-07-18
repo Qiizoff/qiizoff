@@ -67,8 +67,8 @@ inline_btn_2 = InlineKeyboardButton(
     '/help - reply help menu', callback_data='button_help')
 inline_kb1 = InlineKeyboardMarkup().add(inline_btn_1).add(inline_btn_2)
 
-inline_kb_full = InlineKeyboardMarkup(
-    row_width=4).row(inline_btn_1).row(inline_btn_2)
+inline_kb_full = InlineKeyboardMarkup(row_width=2)
+inline_kb_full.add(inline_btn_1).row(inline_btn_2)
 inline_kb_full.add(InlineKeyboardButton('кнопка 2', callback_data='btn2'))
 inline_btn_3 = InlineKeyboardButton('кнопка 3', callback_data='btn3')
 inline_btn_4 = InlineKeyboardButton('кнопка 4', callback_data='btn4')
