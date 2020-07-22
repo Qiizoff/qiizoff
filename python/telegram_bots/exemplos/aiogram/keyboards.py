@@ -2,16 +2,13 @@ from aiogram.types import ReplyKeyboardRemove, \
     ReplyKeyboardMarkup, KeyboardButton, \
     InlineKeyboardMarkup, InlineKeyboardButton
 
-
 reply = ReplyKeyboardMarkup(resize_keyboard=True)
 reply1 = KeyboardButton('/start')
 reply2 = KeyboardButton('/help')
 reply3 = KeyboardButton('/send')
-# reply.add(reply1).add(reply2).add(reply3)
-reply.row(reply1, reply2, reply3).add(KeyboardButton('/inline'))
+reply4 = KeyboardButton('/'+'inline')
+reply.row(reply1, reply2, reply3).add(reply4)
 
-
-# markup_request = ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True).add(KeyboardButton('Отправить свой контакт ☎️', request_contact=True)).add(KeyboardButton('Отправить свою локацию 🗺️', request_location=True)
 send = ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
 send1 = KeyboardButton('Отправить номер ☎️', request_contact=True)
 send2 = KeyboardButton('Отправить геопозицию 🗺️', request_location=True)
@@ -20,12 +17,9 @@ send.add(send1, send2)
 send.row(send3)
 
 inline = InlineKeyboardMarkup()
-inline1 = InlineKeyboardButton(
-    'start - информация о боте', callback_data='button_start')
-inline2 = InlineKeyboardButton(
-    'help - команды бота', callback_data='button_help')
-inline3 = InlineKeyboardButton(
-    'reply - reply меню', callback_data='button_reply')
+inline1 = InlineKeyboardButton('start', callback_data='button_start')
+inline2 = InlineKeyboardButton('help', callback_data='button_help')
+inline3 = InlineKeyboardButton('reply', callback_data='button_reply')
 inline.row(inline1, inline2).add(inline3)
 
 

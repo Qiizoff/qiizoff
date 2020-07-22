@@ -73,6 +73,22 @@ async def process_reply_command(message: types.Message):
     await bot.send_message(message.chat.id, "Список основных reply команд бота:", reply_markup=kb.reply)
 
 
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith('btn'))
+async def process_callback_kb1btn1(callback_query: types.CallbackQuery):
+    code = callback_query.data[-1]
+    if code.isdigit():
+        code = int(code)
+    if code == 2:
+        # await bot.answer_callback_query(callback_query.id, text='Нажата вторая кнопка')
+        # await bot.send_message(message.chat.id, "Прочие inline команды бота:", reply_markup=kb.inline_kb_full)
+        await bot.send_message(message.chat.id, "Отправить личные данные:", reply_markup=kb.inline_request)
+    elif code == 5:
+        await bot.answer_callback_query(callback_query.id, text='Нажата кнопка с номером 5.\nА этот текст может быть длиной до 200 символов 😉', show_alert=True)
+    else:
+        await bot.answer_callback_query(callback_query.id)
+    await bot.send_message(callback_query.from_user.id, f'Нажата инлайн кнопка! code={code}')
+
+
 @dp.message_handler(commands=['other'])
 async def process_other_command(message: types.Message):
     await bot.send_message(message.chat.id, "Прочие inline команды бота:", reply_markup=kb.inline_full)
