@@ -1,22 +1,35 @@
-import random
-n = 9
+# import random
+n = 0
+y = 0
 num = 0
-while n < 10:
+big = 0
+big1 = 0
+big2 = 0
+while n < 1000000:
     n += 1
-    y = random.randint(0, 100)
-    y = 2357899
-    print('\nЧисло:', y)
-    while y > 1:
-        if y % 2 == 0:
+    # y = random.randint(0, 100)
+    y += 1
+    # print('\nЧисло:', y)
+    big1 = y
+    y1 = y
+    while y1 > 1:
+        if y1 % 2 == 0:
             num += 1
-            y = y//2
-            print('ЧЕТ:', y)
+            y1 = y1//2
+            # print('ЧЕТ:', y)
         else:
-            y = (y*3)+1
+            y1 = (y1*3)+1
             num += 1
-            print('НЕЧ:', y)
-    print('Num', num)
-    num = 0
+            # print('НЕЧ:', y1)
+
+    # print('Num:', num)
+    if big < num:
+        big = num
+        big2 = big1
+        num = 0
+    else:
+        num = 0
+print('BIG:', big, 'NUM:', big2)
 
 
 # def even_or_odd(a):
