@@ -30,11 +30,3 @@ while n < 1000000:
     else:
         num = 0
 print('BIG:', big, 'NUM:', big2)
-
-
-# def even_or_odd(a):
-
-#     if a % 2 == 0:
-#         print('Четное число')
-#     else:
-#         print('Нечентное число')
