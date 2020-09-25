@@ -7,3 +7,16 @@ def even_or_odd(a):
 
 
 even_or_odd(3)
+
+
+stats = [["сила", 0], ["здоровье", 1], ["мудрость", 0], ["ловкость", 0]]
+
+
+def add_one(skill):
+    for i in stats:
+        if i[0] == skill:
+            i[1] += 1
+
+
+add_one('сила')
+print(stats)
