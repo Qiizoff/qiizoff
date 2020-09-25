@@ -1,32 +1,25 @@
-# import random
-n = 0
-y = 0
+n = 70
 num = 0
 big = 0
-big1 = 0
-big2 = 0
-while n < 1000000:
-    n += 1
-    # y = random.randint(0, 100)
-    y += 1
-    # print('\nЧисло:', y)
-    big1 = y
-    y1 = y
-    while y1 > 1:
-        if y1 % 2 == 0:
+vi = 0
+for i in range(1, n):
+    # print('Число:', i)
+    vi = i
+    while i > 1:
+        if i % 2 == 0:
+            i = i//2
             num += 1
-            y1 = y1//2
-            # print('ЧЕТ:', y)
+            # print('ЧЕТ:', i)
         else:
-            y1 = (y1*3)+1
+            i = (i*3)+1
             num += 1
-            # print('НЕЧ:', y1)
+            # print('НЕЧ:', i)
+    # print('Кол-во операций:', num)
 
-    # print('Num:', num)
     if big < num:
         big = num
-        big2 = big1
+        vnum = vi
         num = 0
     else:
         num = 0
-print('BIG:', big, 'NUM:', big2)
+print('\nНаибольшее кол-во операций:', big, '\nС числом:', vnum, '\n')
